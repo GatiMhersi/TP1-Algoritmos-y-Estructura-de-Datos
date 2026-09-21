@@ -1,6 +1,6 @@
 public class RacionalConEnteros implements Racional{
-	int numerador;
-	int denominador;
+	private int numerador;
+	private int denominador;
 
 	/**
 	 *  Hola profe, le escribo por una duda sobre la interfaz Racional. 
@@ -18,6 +18,19 @@ public class RacionalConEnteros implements Racional{
      * Suma a la instancia actual el racional r.
      */
 	 public void suma(Racional r){
+        //  0.  (2 / 3) + (3 / 2)
+        //  ↓   Multiplicar denominadores para tener denominador comun
+        //  ↓   Multiplicar numeradores con numerador contrario
+        //  1.  (4 / 6) + (9 / 6)
+        //  ↓   Sumar numeradores por tener igual denominador
+        //  ↓   se mantiene el denominador
+        //  2.  (13 / 6)
+
+
+        r.numerador *= denominador;
+        denominador *= r.denominado;
+        numerador = (numerador * r.denominador) + r.numerador;
+        
 
 	 }
 
@@ -26,6 +39,9 @@ public class RacionalConEnteros implements Racional{
      * Multiplica la instancia actual con el racional r.
      */
     public void mult(Racional r);{
+
+        numerador *= r.numerador;
+        denominador *= r.denominador;
 
     }
 
@@ -39,6 +55,8 @@ public class RacionalConEnteros implements Racional{
      */
     public void neg(){
 
+        numerador *= -1;
+
     }
 
     /**
@@ -47,6 +65,10 @@ public class RacionalConEnteros implements Racional{
      * Ej: r1.div(r2) == r1/r2
      */
     public void div(Racional r){
+        if (r.numerador == 0) throw new IllegalArgumentException("Para dividir, tu numerador no puede ser cero");
+
+        numerado *= r.denominador;
+        denominador *= r.numerador;
 
     }
 
@@ -54,7 +76,7 @@ public class RacionalConEnteros implements Racional{
      * Invariante de representacion, chequea que el denominador sea diferente de 0
      */
     public boolean repOk(){
-
+        return !(denominador==0);
     }
 
     /**
@@ -62,7 +84,7 @@ public class RacionalConEnteros implements Racional{
      * "numerador/denominador"
      */
     public String toString(){
-
+        return numerador + "/" + denominador;
     }
 
 }
