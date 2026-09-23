@@ -2,6 +2,11 @@ public class RacionalConEnteros implements Racional{
 	private int numerador;
 	private int denominador;
 
+    public RacionalConEnteros(){
+        numerador = 0;
+        denominador = 1;
+    }
+
 	/**
 	 *  Hola profe, le escribo por una duda sobre la interfaz Racional. 
 	 * Si yo implemento mi clase RacionalConEnteros, en el método suma(Racional r) 
@@ -18,6 +23,8 @@ public class RacionalConEnteros implements Racional{
      * Suma a la instancia actual el racional r.
      */
 	 public void suma(Racional r){
+        if(r.denominador == 0) throw new IllegalArgumentException("Denominador es cero");
+        if(!RepOk()) throw new IllegalStateException("No se cumple invariante de clase");
         //  0.  (2 / 3) + (3 / 2)
         //  ↓   Multiplicar denominadores para tener denominador comun
         //  ↓   Multiplicar numeradores con numerador contrario
@@ -26,12 +33,13 @@ public class RacionalConEnteros implements Racional{
         //  ↓   se mantiene el denominador
         //  2.  (13 / 6)
 
+        r.numerador = denominador * r.numerador;
+        numerador = r.denominador * numerador;
+        numerador = r.numerador + numerador;
+        denominador = r.denominador * denominador;
 
-        r.numerador *= denominador;
-        denominador *= r.denominado;
-        numerador = (numerador * r.denominador) + r.numerador;
+        if(!RepOk()) throw new IllegalStateException("No se cumple invariante de clase");
         
-
 	 }
 
     /**
@@ -39,10 +47,13 @@ public class RacionalConEnteros implements Racional{
      * Multiplica la instancia actual con el racional r.
      */
     public void mult(Racional r);{
+        if(r.denominador) throw new IllegalArgumentException("Denominador es cero");
+        if(!RepOk()) throw new IllegalStateException("No se cumple invariante de clase");
 
-        numerador *= r.numerador;
-        denominador *= r.denominador;
+        numerador = numerador * r.numerador;
+        denominador = denominador * r.denominador;
 
+        if(!RepOk()) throw new IllegalStateException("No se cumple invariante de clase");
     }
 
     /**
@@ -54,9 +65,11 @@ public class RacionalConEnteros implements Racional{
      * (-2/4).neg() == 2/4
      */
     public void neg(){
+        if(!RepOk()) throw new IllegalStateException("No se cumple invariante de clase");
 
-        numerador *= -1;
+        numerador = numerador * (-1);
 
+        if(!RepOk()) throw new IllegalStateException("No se cumple invariante de clase");
     }
 
     /**
@@ -65,11 +78,15 @@ public class RacionalConEnteros implements Racional{
      * Ej: r1.div(r2) == r1/r2
      */
     public void div(Racional r){
-        if (r.numerador == 0) throw new IllegalArgumentException("Para dividir, tu numerador no puede ser cero");
+        if (r.denominador == 0) throw new IllegalArgumentException("Denominador es cero");
+        if (r.numerador == 0) throw new IllegalArgumentException("Denominador Final Cero");
+        if(!RepOk()) throw new IllegalStateException("No se cumple invariante de clase");
 
-        numerado *= r.denominador;
-        denominador *= r.numerador;
 
+        numerado = numerador * r.denominador;
+        denominador = denominador * r.numerador;
+
+        if(!RepOk()) throw new IllegalStateException("No se cumple invariante de clase");
     }
 
     /**
@@ -84,7 +101,9 @@ public class RacionalConEnteros implements Racional{
      * "numerador/denominador"
      */
     public String toString(){
+        if(!RepOk()) throw new IllegalStateException("No se cumple invariante de clase");
         return numerador + "/" + denominador;
+        if(!RepOk()) throw new IllegalStateException("No se cumple invariante de clase");
     }
 
 }
