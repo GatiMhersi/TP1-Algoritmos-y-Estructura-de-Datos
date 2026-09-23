@@ -6,16 +6,6 @@ public class RacionalConEnteros implements Racional{
         numerador = 0;
         denominador = 1;
     }
-
-	/**
-	 *  Hola profe, le escribo por una duda sobre la interfaz Racional. 
-	 * Si yo implemento mi clase RacionalConEnteros, en el método suma(Racional r) 
-	 * no tengo forma de leer el valor de r a través de la interfaz. 
-	 * Si en un futuro existiera otra clase que implemente la interfaz 
-	 * (por ejemplo, un RacionalConComa que guarde un 0.5), no sabría cómo sumarlo. 
-	 * ¿La idea es que asumamos que el argumento r siempre va a ser de nuestra 
-	 * misma clase y trabajemos directamente con sus variables privadas? 
-	 * */
 	 	
 
 	/**
@@ -27,7 +17,7 @@ public class RacionalConEnteros implements Racional{
         if(!RepOk()) throw new IllegalStateException("No se cumple invariante de clase");
         //  0.  (2 / 3) + (3 / 2)
         //  ↓   Multiplicar denominadores para tener denominador comun
-        //  ↓   Multiplicar numeradores con numerador contrario
+        //  ↓   Multiplicar numeradores con denominador contrario
         //  1.  (4 / 6) + (9 / 6)
         //  ↓   Sumar numeradores por tener igual denominador
         //  ↓   se mantiene el denominador
