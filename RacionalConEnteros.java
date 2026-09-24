@@ -13,15 +13,15 @@ public class RacionalConEnteros implements Racional{
      * Suma a la instancia actual el racional r.
      */
 	 public void suma(Racional r){
-        RacionalConEntero numeroNuevo = (RacionalConEntero) r;
-        if(nuevoNumero.denominador == 0) throw new IllegalArgumentException("Denominador es cero");
-        if(!RepOk()) throw new IllegalStateException("No se cumple invariante de clase");
+        RacionalConEnteros numeroNuevo = (RacionalConEnteros) r;
+        if(numeroNuevo.denominador == 0) throw new IllegalArgumentException("Denominador es cero");
+        if(!repOk()) throw new IllegalStateException("No se cumple invariante de clase");
         
         this.numerador = (numeroNuevo.numerador * this.denominador) + (this.numerador * numeroNuevo.denominador);
         this.denominador = numeroNuevo.denominador * this.denominador;
 
 
-        if(!RepOk()) throw new IllegalStateException("No se cumple invariante de clase");
+        if(!repOk()) throw new IllegalStateException("No se cumple invariante de clase");
         
 	 }
 
@@ -29,15 +29,15 @@ public class RacionalConEnteros implements Racional{
      * Operacion para multiplicacion de racionales
      * Multiplica la instancia actual con el racional r.
      */
-    public void mult(Racional r);{
-        RacionalConEntero numeroNuevo = (RacionalConEntero) r;
-        if(r.denominador == 0) throw new IllegalArgumentException("Denominador es cero");
-        if(!RepOk()) throw new IllegalStateException("No se cumple invariante de clase");
+    public void mult(Racional r){
+        RacionalConEnteros numeroNuevo = (RacionalConEnteros) r;
+        if(numeroNuevo.denominador == 0) throw new IllegalArgumentException("Denominador es cero");
+        if(!repOk()) throw new IllegalStateException("No se cumple invariante de clase");
         
         numerador = numerador * numeroNuevo.numerador;
         denominador = denominador * numeroNuevo.denominador;
 
-        if(!RepOk()) throw new IllegalStateException("No se cumple invariante de clase");
+        if(!repOk()) throw new IllegalStateException("No se cumple invariante de clase");
     }
 
     /**
@@ -49,11 +49,11 @@ public class RacionalConEnteros implements Racional{
      * (-2/4).neg() == 2/4
      */
     public void neg(){
-        if(!RepOk()) throw new IllegalStateException("No se cumple invariante de clase");
+        if(!repOk()) throw new IllegalStateException("No se cumple invariante de clase");
 
         numerador = numerador * (-1);
 
-        if(!RepOk()) throw new IllegalStateException("No se cumple invariante de clase");
+        if(!repOk()) throw new IllegalStateException("No se cumple invariante de clase");
     }
 
     /**
@@ -62,15 +62,16 @@ public class RacionalConEnteros implements Racional{
      * Ej: r1.div(r2) == r1/r2
      */
     public void div(Racional r){
-        if (r.denominador == 0) throw new IllegalArgumentException("Denominador es cero");
-        if (r.numerador == 0) throw new IllegalArgumentException("Denominador Final Cero");
-        if(!RepOk()) throw new IllegalStateException("No se cumple invariante de clase");
+        RacionalConEnteros numeroNuevo = (RacionalConEnteros) r;
+        if (numeroNuevo.denominador == 0) throw new IllegalArgumentException("Denominador es cero");
+        if (numeroNuevo.numerador == 0) throw new IllegalArgumentException("Denominador Final Cero");
+        if(!repOk()) throw new IllegalStateException("No se cumple invariante de clase");
 
 
-        numerado = numerador * r.denominador;
-        denominador = denominador * r.numerador;
+        numerador = numerador * numeroNuevo.denominador;
+        denominador = denominador * numeroNuevo.numerador;
 
-        if(!RepOk()) throw new IllegalStateException("No se cumple invariante de clase");
+        if(!repOk()) throw new IllegalStateException("No se cumple invariante de clase");
     }
 
     /**
@@ -85,9 +86,9 @@ public class RacionalConEnteros implements Racional{
      * "numerador/denominador"
      */
     public String toString(){
-        if(!RepOk()) throw new IllegalStateException("No se cumple invariante de clase");
+        //if(!repOk()) throw new IllegalStateException("No se cumple invariante de clase");
         return numerador + "/" + denominador;
-        if(!RepOk()) throw new IllegalStateException("No se cumple invariante de clase");
+        //if(!repOk()) throw new IllegalStateException("No se cumple invariante de clase");
     }
 
 }
