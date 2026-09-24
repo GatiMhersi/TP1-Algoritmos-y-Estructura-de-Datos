@@ -8,6 +8,9 @@ public class RacionalConEnteros implements Racional{
     }
 
     public RacionalConEnteros(int numerador, int denominador){
+        if (denominador == 0) {
+            throw new IllegalArgumentException("El denominador no puede ser cero al crear un Racional.");
+        }
         this.numerador = numerador;
         this.denominador = denominador;
     }
