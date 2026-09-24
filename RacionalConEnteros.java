@@ -95,11 +95,9 @@ public class RacionalConEnteros implements Racional{
      */
     public String toString(){
         if (!repOk()) throw new IllegalStateException("No se cumple invariante de clase");
-<<<<<<< HEAD
-        return numerador + "/" + denominador;
-=======
+
         return numerador + "R" + denominador;
->>>>>>> cedbf16 (arreglo del metodo to String en la clase Racional con Enteros)
+
     }
 
 }
