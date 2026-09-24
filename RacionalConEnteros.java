@@ -13,20 +13,13 @@ public class RacionalConEnteros implements Racional{
      * Suma a la instancia actual el racional r.
      */
 	 public void suma(Racional r){
-        if(r.denominador == 0) throw new IllegalArgumentException("Denominador es cero");
+        RacionalConEntero numeroNuevo = (RacionalConEntero) r;
+        if(nuevoNumero.denominador == 0) throw new IllegalArgumentException("Denominador es cero");
         if(!RepOk()) throw new IllegalStateException("No se cumple invariante de clase");
-        //  0.  (2 / 3) + (3 / 2)
-        //  ↓   Multiplicar denominadores para tener denominador comun
-        //  ↓   Multiplicar numeradores con denominador contrario
-        //  1.  (4 / 6) + (9 / 6)
-        //  ↓   Sumar numeradores por tener igual denominador
-        //  ↓   se mantiene el denominador
-        //  2.  (13 / 6)
+        
+        this.numerador = (numeroNuevo.numerador * this.denominador) + (this.numerador * numeroNuevo.denominador);
+        this.denominador = numeroNuevo.denominador * this.denominador;
 
-        r.numerador = denominador * r.numerador;
-        numerador = r.denominador * numerador;
-        numerador = r.numerador + numerador;
-        denominador = r.denominador * denominador;
 
         if(!RepOk()) throw new IllegalStateException("No se cumple invariante de clase");
         
@@ -37,11 +30,12 @@ public class RacionalConEnteros implements Racional{
      * Multiplica la instancia actual con el racional r.
      */
     public void mult(Racional r);{
-        if(r.denominador) throw new IllegalArgumentException("Denominador es cero");
+        RacionalConEntero numeroNuevo = (RacionalConEntero) r;
+        if(r.denominador == 0) throw new IllegalArgumentException("Denominador es cero");
         if(!RepOk()) throw new IllegalStateException("No se cumple invariante de clase");
-
-        numerador = numerador * r.numerador;
-        denominador = denominador * r.denominador;
+        
+        numerador = numerador * numeroNuevo.numerador;
+        denominador = denominador * numeroNuevo.denominador;
 
         if(!RepOk()) throw new IllegalStateException("No se cumple invariante de clase");
     }
