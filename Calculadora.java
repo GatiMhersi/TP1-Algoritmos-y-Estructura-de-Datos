@@ -126,7 +126,8 @@ public class Calculadora {
                          * */
                          a = numeros.desapilar();
                          b = numeros.desapilar();
-                         a.suma(b.neg());
+                         b.neg();
+                         a.suma(b);
                          numeros.apilar(a);
                          break;
 
