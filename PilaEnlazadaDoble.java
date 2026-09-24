@@ -3,7 +3,7 @@ public class PilaEnlazadaDoble<T> implements Pila<T> {
     private NodoPila<T> inicio;
     private NodoPila<T> fin;
 
-    public PilaDoblementeEnlazada() {
+    public PilaEnlazadaDoble() {
         this.inicio = null;
         this.fin = null;
     }

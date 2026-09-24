@@ -6,6 +6,11 @@ public class RacionalConEnteros implements Racional{
         numerador = 0;
         denominador = 1;
     }
+
+    public RacionalConEnteros(int numerador, int denominador){
+        this.numerador = numerador;
+        this.denominador = denominador;
+    }
 	 	
 
 	/**
