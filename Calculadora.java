@@ -32,7 +32,7 @@ public class Calculadora {
         }
 
         //Creacion de pila que guardara numeros Racionales
-        Pila<Racional> numeros = new PilaEnlazadaDoble<>();  
+        Pila<Racional> numeros = new PilaDoblementeEnlazada<>();  
 
 
         //Guardamos en un arreglo todos los valores(operadores y numeros en formato string), separandolo por espacios
